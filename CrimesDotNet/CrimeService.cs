@@ -8,6 +8,8 @@ namespace CrimesDotNet
     {
         private CrimeWebCalls web = new CrimeWebCalls();
 
+        public const string ENDPOINT = "http://data.police.uk/api";
+
         public List<CrimeDataset> GetAvailableDatasets()
         {
             string url = "http://data.police.uk/api/crimes-street-dates";
@@ -18,14 +20,14 @@ namespace CrimesDotNet
 
         public List<Crime> GetCrimes(double lat, double lng)
         {
-            string url = String.Format("http://data.police.uk/api/crimes-street/all-crime?lat={0}&lng={1}", lat, lng);
+            string url = String.Format(ENDPOINT + "/crimes-street/all-crime?lat={0}&lng={1}", lat, lng);
             List<Crime> output = web.RetrieveCrimes(url);
             return output;
         }
 
         public List<Crime> GetCrimes(double lat, double lng, string date)
         {
-            string url = String.Format("http://data.police.uk/api/crimes-street/all-crime?lat={0}&lng={1}&date={2}", lat, lng, date);
+            string url = String.Format(ENDPOINT + "/crimes-street/all-crime?lat={0}&lng={1}&date={2}", lat, lng, date);
             List<Crime> output = web.RetrieveCrimes(url);
             return output;
         }
@@ -38,14 +40,14 @@ namespace CrimesDotNet
 
         public List<Crime> GetCrimes(Poly poly)
         {
-            string url = String.Format("http://data.police.uk/api/crimes-street/all-crime?poly={0}", poly.ToString());
+            string url = String.Format(ENDPOINT + "/crimes-street/all-crime?poly={0}", poly.ToString());
             List<Crime> output = web.RetrieveCrimes(url);
             return output;
         }
 
         public List<Crime> GetCrimes(Poly poly, string date)
         {
-            string url = String.Format("http://data.police.uk/api/crimes-street/all-crime?poly={0}&date={1}", poly.ToString(), date);
+            string url = String.Format(ENDPOINT + "/crimes-street/all-crime?poly={0}&date={1}", poly.ToString(), date);
             List<Crime> output = web.RetrieveCrimes(url);
             return output;
         }
