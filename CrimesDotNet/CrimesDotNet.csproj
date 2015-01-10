@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Crime.cs" />
     <Compile Include="CrimeService.cs" />
+    <Compile Include="CrimeWebCalls.cs" />
     <Compile Include="DataAvailability.cs" />
     <Compile Include="ICrimeService.cs" />
     <Compile Include="Poly.cs" />
