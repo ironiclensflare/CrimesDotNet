@@ -12,7 +12,7 @@ namespace CrimesDotNet
 
         public List<CrimeDataset> GetAvailableDatasets()
         {
-            string url = "http://data.police.uk/api/crimes-street-dates";
+            string url = ENDPOINT + "/crimes-street-dates";
             string json = web.MakeHttpGetRequest(url);
             List<CrimeDataset> output = JsonConvert.DeserializeObject<List<CrimeDataset>>(json);
             return output;
